@@ -1,11 +1,13 @@
-et nocompatible
+set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vi
 " behave mswin
+
 " pathogen plugin startin
 call pathogen#infect()
 syntax on
 filetype plugin indent on
+
 " set diffexpr=MyDiff()
 " function MyDiff()
 " let opt = '-a --binary '
@@ -30,20 +32,28 @@ filetype plugin indent on
 " endif
 " silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 " endfunction
+
 " set color scheme
 colorscheme torte
+
 " Display line number
 set number
+
 " Diff always vertical
 set diffopt=vertical
+
 " make backspace work like most other apps
 set backspace=indent,eol,start
+
 " sets trailing spaces and tabs to easily visible characters
 set list listchars=tab:->,trail:.,
+
 " Show all the white space character
 set list
+
 " Change the current directory to the open file
 " set autochdir
+
 " ---------------------------------------------------
 " Search
 " ---------------------------------------------------
@@ -56,6 +66,7 @@ set ignorecase
 set smartcase
 " Show the search result as you type
 set incsearch
+
 " ---------------------------------------------------
 " Tabulation and identation
 " ---------------------------------------------------
@@ -71,6 +82,7 @@ set tabstop=2
 set shiftwidth=2
 " this is to make sure vim replaces tabs by spaces
 set expandtab
+
 "----------------------------------------------------
 " Beeping
 "----------------------------------------------------
@@ -78,6 +90,7 @@ set expandtab
 set noerrorbells
 " Use visual bell and remove flash
 autocmd VimEnter * set vb t_vb=
+
 " ---------------------------------------------------
 " Remove the backup option (~ and .swp files)
 " ---------------------------------------------------
@@ -85,6 +98,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
+
 " ---------------------------------------------------
 " Trim extra white spaces at end of lines
 " ---------------------------------------------------
@@ -116,20 +130,24 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e
 " US Sanity Test shortcut
 " ---------------------------------------------------
 " nmap <F2> :!start cmd /c d:&cd ..&npm test&pause<CR>
+
 " ---------------------------------------------------
 " JS specific shortcuts
 " ---------------------------------------------------
 nmap <F2> yiwoconsole.log("jf-debug-> '<C-O>p': ", <C-O>p);<Esc>
 nmap <F3> oconsole.log('jf-debug-> arguements : ', arguments);<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 nmap <F4> yiwoconsole.log("jf-debug-> '<C-O>p': ", require('util').inspect(<C-O>p, {depth:10, colors:true}));<Esc>
+
 " ---------------------------------------------------
 " Adding batch file comment type. Used with plugin commentary
 " ---------------------------------------------------
 autocmd FileType dosbatch set commentstring=::\ %s
+
 " ---------------------------------------------------
 " Chaning the font for MAC only because the base font is too small.
 " ---------------------------------------------------
 set guifont=Menlo\ Regular:h13
+
 " ---------------------------------------------------
 " Call the js beautify plugin https://github.com/maksimr/vim-jsbeautify
 " ---------------------------------------------------
@@ -139,6 +157,7 @@ map <c-f> :call RangeJsBeautify()<cr>
 " autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 " autocmd FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
 " autocmd BufWritePre *.js :call JsBeautify()
+
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
@@ -154,6 +173,7 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides
 let g:syntastic_always_populate_loc_list = 1 "Enable this option to tell syntastic to always stick any detected errors into the |location-list|:
 let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be automatically opened when errors are detected, and closed when none are detected. >
 " let g:syntastic_aggregate_errors = 1
+
 " ---------------------------------------------------
 " UtilsSnip configs
 " ---------------------------------------------------
@@ -164,18 +184,18 @@ let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be autom
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 function! g:UltiSnips_Complete()
-call UltiSnips#ExpandSnippet()
-if g:ulti_expand_res == 0
-if pumvisible()
-return "\<C-n>"
-else
-call UltiSnips#JumpForwards()
-if g:ulti_jump_forwards_res == 0
-return "\<TAB>"
-endif
-endif
-endif
-return ""
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
 endfunction
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -184,16 +204,19 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " ---------------------------------------------------<left>
 " Setting JSON file type so sourcebeautify can beautify json files.
 " not used anymore. Left so vim-jebeautify can format json files.
 " ---------------------------------------------------
 autocmd BufRead,BufNewFile *.json setf json
+
 " ---------------------------------------------------
 " EasyAlign setup
 " ---------------------------------------------------
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
+
 " ---------------------------------------------------
 " ag vim configs
 " ---------------------------------------------------
@@ -203,6 +226,7 @@ map <leader>f :Ag --ignore node_modules --ignore assets -S ~/kr/keatonrow<left><
 " taken from here: http://usevim.com/2013/03/15/vim-101-command-line/
 " and here: :help ins-special-keys
 vmap <leader>f "ty:Ag --ignore node_modules --ignore assets -S <C-R>t ~/kr/keatonrow <CR>
+
 " ---------------------------------------------------
 " NERDTree configuration
 " ---------------------------------------------------
@@ -212,6 +236,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " automatically open NERDTree when a file is specified at command line
 autocmd vimenter * NERDTree
+
 " statusline settings
 " taken from: http://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
 " more here: http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
