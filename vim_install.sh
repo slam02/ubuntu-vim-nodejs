@@ -89,6 +89,8 @@ function vimJsBeautify {
   echo installing 'vimJsBeautify'
   npm -g install js-beautify
   clone maksimr/vim-jsbeautify.git vim-jsbeautify
+  cd $bundlePath/vim-jsbeautify
+  git submodule update --init --recursive
 }
 
 function vimJsDoc {
@@ -118,18 +120,18 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-pathogen
-nerdtree
-ctrlp
-installAg
-vimCommentary
-vimJsDoc
+# pathogen
+# nerdtree
+# ctrlp
+# installAg
+# vimCommentary
+# vimJsDoc
 vimJsBeautify
-easyAlign
-ultisnips
-vimSnippets
-syntastic
-ternForVim
-youCompleteMe
+# easyAlign
+# ultisnips
+# vimSnippets
+# syntastic
+# ternForVim
+# youCompleteMe
 
-vimrc
+# vimrc
