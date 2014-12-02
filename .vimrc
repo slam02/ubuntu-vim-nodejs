@@ -146,7 +146,7 @@ autocmd FileType dosbatch set commentstring=::\ %s
 " ---------------------------------------------------
 " Chaning the font for MAC only because the base font is too small.
 " ---------------------------------------------------
-set guifont=Menlo\ Regular:h13
+set guifont=Droid\ Sans\ Mono\ 11
 
 " ---------------------------------------------------
 " Call the js beautify plugin https://github.com/maksimr/vim-jsbeautify
