@@ -120,18 +120,18 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-# pathogen
-# nerdtree
-# ctrlp
-# installAg
-# vimCommentary
-# vimJsDoc
+pathogen
+nerdtree
+ctrlp
+installAg
+vimCommentary
+vimJsDoc
 vimJsBeautify
-# easyAlign
-# ultisnips
-# vimSnippets
-# syntastic
-# ternForVim
-# youCompleteMe
+easyAlign
+ultisnips
+vimSnippets
+syntastic
+ternForVim
+youCompleteMe
 
-# vimrc
+vimrc
