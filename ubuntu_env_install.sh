@@ -37,4 +37,3 @@ nvm use default
 
 # to enable node and npm right away
 . ~/.profile
-
