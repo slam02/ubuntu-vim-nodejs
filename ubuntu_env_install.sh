@@ -12,19 +12,29 @@ sudo apt-get install curl
 cd ~
 
 sudo apt-get install build-essential libssl-dev
-curl https://raw.githubusercontent.com/creationix/nvm/v0.16.1/install.sh | sh
-source ~/.profile
-source ~/.bashrc
+
+rm -rf ~/.nvm
+
+curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | sh
+
+if ! grep -q '\. "$HOME/.bashrc"' .profile; then
+  echo 'if [ -n "$BASH_VERSION" ]; then' >> .profile
+  echo '  # include .bashrc if it exists' >> .profile
+  echo '  echo "sourcing .bashrc"' >> .profile
+  echo '  if [ -f "$HOME/.bashrc" ]; then' >> .profile
+  echo '    . "$HOME/.bashrc"' >> .profile
+  echo '  fi' >> .profile
+  echo 'fi' >> .profile
+fi
+
+# ok...need to source the file directly...because I'm not sure why.
+# found the proposition here: https://github.com/creationix/nvm/issues/521#issuecomment-55017400
+. $NVM_DIR/nvm.sh
 
 nvm install 0.10.26
+nvm alias default 0.10.26
+nvm use default
 
-# because it seems there is no way to easily install
-# nodejs globally for this user...
-# see here : http://stackoverflow.com/questions/19352976/npm-modules-wont-install-globally-without-sudo
-# mkdir -p ~/npm
-# npm config set prefix ~/npm
-# if ! grep -q 'export PATH="$PATH:$HOME/npm/bin"' .profile; then
-#  cd ~
-#  echo 'export PATH="$PATH:$HOME/npm/bin"' >> .profile
-# fi
-# . ~/.profile
+# to enable node and npm right away
+. ~/.profile
+
