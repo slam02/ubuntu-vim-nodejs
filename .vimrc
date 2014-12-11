@@ -222,10 +222,12 @@ vmap <Enter> <Plug>(EasyAlign)
 " ---------------------------------------------------
 " hightlight the search results
 let g:aghighlight=1
-map <leader>f :Ag --ignore node_modules --ignore assets -S ~/kr/keatonrow<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-" taken from here: http://usevim.com/2013/03/15/vim-101-command-line/
-" and here: :help ins-special-keys
-vmap <leader>f "ty:Ag --ignore node_modules --ignore assets -S <C-R>t ~/kr/keatonrow <CR>
+" <C-r><C-w> returns the word under the cursor
+" info taken here: http://stackoverflow.com/questions/13511084/vim-set-cursor-position-in-command-line
+" and here: http://stackoverflow.com/questions/27297304/how-to-append-the-output-of-a-function-in-a-normal-mapping-command/27297508
+nnoremap <expr> <leader>f ':Ag --ignore node_modules --ignore assets -S "" "' . getcwd() . '"<C-Left><Left><Left>'
+" <C-r><C-w> returns the word under the cursor
+nnoremap <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
 
 " ---------------------------------------------------
 " NERDTree configuration
