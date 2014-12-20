@@ -34,7 +34,9 @@ filetype plugin indent on
 " endfunction
 
 " set color scheme
-colorscheme torte
+syntax enable
+set background=dark
+colorscheme solarized
 
 " Display line number
 set number

@@ -109,6 +109,11 @@ function fugitive {
   vim -u NONE -c "helptags vim-fugitive/doc" -c q
 }
 
+function solarized {
+  echo installing 'solarized' color scheme
+  clone altercation/vim-colors-solarized.git vim-colors-solarized
+}
+
 function vimrc {
   local dest=~/ubuntu-vim-nodejs
   if [ -d $dest ]; then
