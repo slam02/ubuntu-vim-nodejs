@@ -103,6 +103,12 @@ function easyAlign {
   clone junegunn/vim-easy-align vim-easy-align
 }
 
+function fugitive {
+  echo installing 'vim-fugitive'
+  clone tpope/vim-fugitive.git vim-fugitive
+  vim -u NONE -c "helptags vim-fugitive/doc" -c q
+}
+
 function vimrc {
   local dest=~/ubuntu-vim-nodejs
   if [ -d $dest ]; then
