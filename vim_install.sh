@@ -124,7 +124,7 @@ function vimrc {
 
   echo cloning ubuntu-vim-nodejs
   git clone git@github.com:slam02/ubuntu-vim-nodejs.git
-  
+
   if [ -f .vimrc ]; then
     mv .vimrc .vimrc.bak
   fi
