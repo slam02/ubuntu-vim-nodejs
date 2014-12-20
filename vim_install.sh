@@ -144,5 +144,7 @@ vimSnippets
 syntastic
 ternForVim
 youCompleteMe
+fugitive
+solarized
 
 vimrc
