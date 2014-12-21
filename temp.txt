@@ -4,8 +4,16 @@ function clone {
   local dest=$bundlePath/$2
   cd $bundlePath
   git clone https://github.com/$1
+  echo "TEST AGAIN !!"
 
 }
+
+
+
+
+
+
+
 
 function pathogen {
   echo installing 'pathogen'
