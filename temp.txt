@@ -1,13 +1,13 @@
+echo TEST1
 function clone {
   echo Cloning path $2
   local dest=$bundlePath/$2
-  if [ -d $dest ]; then
-    rm -rf $dest
-  fi
   cd $bundlePath
   git clone https://github.com/$1
 
 }
+
+echo TEST@@@@
 
 function pathogen {
   echo installing 'pathogen'
