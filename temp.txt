@@ -1,8 +1,11 @@
+echo TEST2
 function clone {
   echo Cloning path $2
   local dest=$bundlePath/$2
   if [ -d $dest ]; then
+    echo $dest
     rm -rf $dest
+    echo $dest - after 
   fi
   cd $bundlePath
   git clone https://github.com/$1
