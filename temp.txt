@@ -1,4 +1,16 @@
-this is a test1
-this is a test 2.5
-this is a test3
+function clone {
+  echo Cloning path $2
+  local dest=$bundlePath/$2
+  if [ -d $dest ]; then
+    rm -rf $dest
+  fi
+  cd $bundlePath
+  git clone https://github.com/$1
 
+}
+
+function pathogen {
+  echo installing 'pathogen'
+  mkdir -p ~/.vim/autoload $bundlePath && \
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+}
