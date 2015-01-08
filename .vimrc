@@ -35,10 +35,8 @@ filetype plugin indent on
 
 " set color scheme
 syntax enable
-set background=dark
-" I want high contrast diffs
-let g:solarized_diffmode="high"
-colorscheme solarized
+
+colorscheme iceberg
 
 " Display line number
 set number

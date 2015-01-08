@@ -110,41 +110,55 @@ function fugitive {
 }
 
 function solarized {
+  # command to put in vimrc if I want to switch to solarized
+  #
+  # set background=dark
+  # " I want high contrast diffs
+  # let g:solarized_diffmode="high"
+  # colorscheme solarized
+
   echo installing 'solarized' color scheme
   clone altercation/vim-colors-solarized.git vim-colors-solarized
 }
 
+function iceberg {
+  echo installing 'iceberg' color scheme
+  clone cocopon/iceberg.vim.git  iceberg.vim
+}
+
 function vimrc {
   local dest=~/ubuntu-vim-nodejs
-  if [ -d $dest ]; then
-    rm -rf $dest
-  fi
+  # if [ -d $dest ]; then
+  #   rm -rf $dest
+  # fi
 
   cd ~
 
-  echo cloning ubuntu-vim-nodejs
-  git clone git@github.com:slam02/ubuntu-vim-nodejs.git
+  # echo cloning ubuntu-vim-nodejs
+  # git clone git@github.com:slam02/ubuntu-vim-nodejs.git
 
+  echo Symlinking .vimrc
   if [ -f .vimrc ]; then
     mv .vimrc .vimrc.bak
   fi
   ln -s $dest/.vimrc .vimrc
 }
 
-pathogen
+# pathogen
 nerdtree
-ctrlp
-installAg
-vimCommentary
-vimJsDoc
-vimJsBeautify
-easyAlign
-ultisnips
-vimSnippets
-syntastic
-ternForVim
-youCompleteMe
-fugitive
-solarized
+# ctrlp
+# installAg
+# vimCommentary
+# vimJsDoc
+# vimJsBeautify
+# easyAlign
+# ultisnips
+# vimSnippets
+# syntastic
+# ternForVim
+# youCompleteMe
+# fugitive
+# solarized
+iceberg
 
 vimrc
