@@ -144,21 +144,21 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-# pathogen
+pathogen
 nerdtree
-# ctrlp
-# installAg
-# vimCommentary
-# vimJsDoc
-# vimJsBeautify
-# easyAlign
-# ultisnips
-# vimSnippets
-# syntastic
-# ternForVim
-# youCompleteMe
-# fugitive
-# solarized
+ctrlp
+installAg
+vimCommentary
+vimJsDoc
+vimJsBeautify
+easyAlign
+ultisnips
+vimSnippets
+syntastic
+ternForVim
+youCompleteMe
+fugitive
+solarized
 iceberg
 
 vimrc
