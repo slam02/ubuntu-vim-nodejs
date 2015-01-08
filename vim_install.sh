@@ -126,6 +126,11 @@ function iceberg {
   clone cocopon/iceberg.vim.git  iceberg.vim
 }
 
+function delimitMate {
+  echo insalling delimitMate
+  clone Raimondi/delimitMate.git delimitMate
+}
+
 function vimrc {
   local dest=~/ubuntu-vim-nodejs
 
@@ -154,5 +159,6 @@ youCompleteMe
 fugitive
 solarized
 iceberg
+delimitMate
 
 vimrc
