@@ -128,14 +128,8 @@ function iceberg {
 
 function vimrc {
   local dest=~/ubuntu-vim-nodejs
-  # if [ -d $dest ]; then
-  #   rm -rf $dest
-  # fi
 
   cd ~
-
-  # echo cloning ubuntu-vim-nodejs
-  # git clone git@github.com:slam02/ubuntu-vim-nodejs.git
 
   echo Symlinking .vimrc
   if [ -f .vimrc ]; then
