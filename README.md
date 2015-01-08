@@ -25,6 +25,7 @@ plugins installed:
     fugitive - https://github.com/tpope/vim-fugitive
     solarized - https://github.com/altercation/vim-colors-solarized
     iceberg - https://github.com/cocopon/iceberg.vim
+    delimitMate - https://github.com/Raimondi/delimitMate
 
 Environment;
 
