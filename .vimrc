@@ -142,8 +142,10 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e
 " the delimiter plugin was adding double quote, single quotes, ....
 " using the registers make those mapping agnostic of the plugins.
 nmap <F2> yiwo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", ' . @" . ');'<enter><esc>"mp
+vmap <F2> yo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", ' . @" . ');'<enter><esc>"mp
 nmap <F3> o<esc>:let @m = 'console.log(''jf-debug-> arguments: '', arguments);'<enter><esc>"mp<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 nmap <F4> yiwo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
+vmap <F4> yo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
 
 " ---------------------------------------------------
 " Adding batch file comment type. Used with plugin commentary
