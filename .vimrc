@@ -136,9 +136,14 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e
 " ---------------------------------------------------
 " JS specific shortcuts
 " ---------------------------------------------------
-nmap <F2> yiwoconsole.log("jf-debug-> '<C-O>p': ", <C-O>p);<Esc>
-nmap <F3> oconsole.log('jf-debug-> arguements : ', arguments);<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-nmap <F4> yiwoconsole.log("jf-debug-> '<C-O>p': ", require('util').inspect(<C-O>p, {depth:10, colors:true}));<Esc>
+" in order to prevent some plugins (like delimiter) to interfer with the typed
+" characters, the content is provided to a register, and this register is
+" printed
+" the delimiter plugin was adding double quote, single quotes, ....
+" using the registers make those mapping agnostic of the plugins.
+nmap <F2> yiwo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", ' . @" . ');'<enter><esc>"mp
+nmap <F3> o<esc>:let @m = 'console.log(''jf-debug-> arguments: '', arguments);'<enter><esc>"mp<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+nmap <F4> yiwo<esc>:let @m = 'console.log("jf-debug-> ''' . @" . ''': ", require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
 
 " ---------------------------------------------------
 " Adding batch file comment type. Used with plugin commentary
