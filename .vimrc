@@ -220,6 +220,11 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" UltiSnips is the default bundle used by UltiSnips. It is installed via
+" 'vim-snippets' plugin
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "jfsnippets"]
+
+
 " ---------------------------------------------------<left>
 " Setting JSON file type so sourcebeautify can beautify json files.
 " not used anymore. Left so vim-jebeautify can format json files.

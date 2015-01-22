@@ -7,6 +7,8 @@ fi
 
 bundlePath=~/.vim/bundle
 
+currentFolder=~/ubuntu-vim-nodejs
+
 function clone {
   echo Cloning path $2
   local dest=$bundlePath/$2
@@ -73,6 +75,12 @@ function ternForVim {
 function ultisnips {
   echo installing 'ultisnips'
   clone SirVer/ultisnips.git ultisnips
+
+  # also adding custom snippets
+  # in order to work, the array g:UltiSnipsSnippetDirectories must contain "jf-snippets". Done in .vimrc
+  cd $bundlePath
+  ln -s $currentFolder/vim-jfsnippets vim-jfsnippets
+
 }
 
 function vimSnippets {
@@ -132,7 +140,7 @@ function delimitMate {
 }
 
 function vimrc {
-  local dest=~/ubuntu-vim-nodejs
+  local dest=$currentFolder
 
   cd ~
 
