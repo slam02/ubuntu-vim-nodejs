@@ -189,6 +189,8 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides
 let g:syntastic_always_populate_loc_list = 1 "Enable this option to tell syntastic to always stick any detected errors into the |location-list|:
 let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be automatically opened when errors are detected, and closed when none are detected. >
 " let g:syntastic_aggregate_errors = 1
+"
+let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["html"] }
 
 " ---------------------------------------------------
 " UtilsSnip configs
