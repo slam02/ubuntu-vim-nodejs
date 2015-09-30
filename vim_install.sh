@@ -139,6 +139,11 @@ function delimitMate {
   clone Raimondi/delimitMate.git delimitMate
 }
 
+function multipleCursors {
+  echo insalling vim-multiple-cursors
+  clone terryma/vim-multiple-cursors.git vim-multiple-cursors
+}
+
 function vimrc {
   local dest=$currentFolder
 
@@ -168,5 +173,6 @@ fugitive
 solarized
 iceberg
 delimitMate
+multipleCursors
 
 vimrc
