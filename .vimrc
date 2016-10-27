@@ -40,6 +40,7 @@ colorscheme iceberg
 
 " Display line number
 set number
+set relativenumber
 
 " Diff always vertical
 set diffopt=vertical
