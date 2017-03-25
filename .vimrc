@@ -33,9 +33,9 @@ filetype plugin indent on
 " silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 " endfunction
 
-" set color scheme
 syntax enable
 
+" set color scheme
 colorscheme iceberg
 
 " Display line number
@@ -108,34 +108,6 @@ set noundofile
 " autocmd BufWritePre *.py normal m`:%s/\s\+$//e
 
 " ---------------------------------------------------
-" Shortcuts for VIM tabs
-" ---------------------------------------------------
-" ctrl-tab for next tab
-" nmap <C-Tab> :tabnext <CR><ESC>
-" ctrl-shift-tab for previous tab
-" nmap <C-S-Tab> :tabprevious <CR><ESC>
-" creates a new tab
-" nmap <C-n> :tabnew<CR><ESC>
-" close the current tab
-" DOES NOT WORK - VIM maps ctrl-n and ctrl-shirt-n to the same acsii code
-" source: https://groups.google.com/forum/#!topic/vim_use/sQVCPUn9-vY
-" nmap <C-S-n> :tabclose<CR><ESC>
-" ---------------------------------------------------
-" P4 shortcuts
-" ---------------------------------------------------
-" check out the file
-" map <F4> :cd %:h<CR> :! p4 edit %<CR> :w!<CR>
-" ---------------------------------------------------
-" python shortcuts
-" ---------------------------------------------------
-" print the 'import pdb; pdb.set_trace()' command
-" nmap <F9> iimport pdb; pdb.set_trace()<ESC>o<ESC>:w<CR>
-" ---------------------------------------------------
-" US Sanity Test shortcut
-" ---------------------------------------------------
-" nmap <F2> :!start cmd /c d:&cd ..&npm test&pause<CR>
-
-" ---------------------------------------------------
 " JS specific shortcuts
 " ---------------------------------------------------
 " in order to prevent some plugins (like delimiter) to interfer with the typed
@@ -145,11 +117,11 @@ set noundofile
 " using the registers make those mapping agnostic of the plugins.
 " the 'oi<BS><esc>' is just to et leverage the automatic indentation provided
 " by vim 'o' while still returning in normal mode with the <esc>
-nmap <F2> yiwoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', ' . @" . ');'<enter><esc>"mp
-vmap <F2> yoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', ' . @" . ');'<enter><esc>"mp
-nmap <F3> oi<BS><esc>:let @m = 'console.log(''jf-debug-> arguments: '', arguments);'<enter><esc>"mp<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-nmap <F4> yiwoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
-vmap <F4> yoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
+autocmd FileType javascript nmap <buffer> <F2> yiwoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', ' . @" . ');'<enter><esc>"mp
+autocmd FileType javascript vmap <buffer> <F2> yoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', ' . @" . ');'<enter><esc>"mp
+autocmd FileType javascript nmap <buffer> <F3> oi<BS><esc>:let @m = 'console.log(''jf-debug-> arguments: '', arguments);'<enter><esc>"mp<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+autocmd FileType javascript nmap <buffer> <F4> yiwoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
+autocmd FileType javascript vmap <buffer> <F4> yoi<BS><esc>:let @m = 'console.log(''jf-debug-> "' . @" . '": '', require(''util'').inspect(' . @" . ', {depth:100, colors:true}));'<enter><esc>"mp
 
 " ---------------------------------------------------
 " Adding batch file comment type. Used with plugin commentary
@@ -161,19 +133,9 @@ autocmd FileType dosbatch set commentstring=::\ %s
 " ---------------------------------------------------
 if has('mac')
   set guifont=Menlo\ Regular:h13
-elseif has('unix')
-  set guifont=Droid\ Sans\ Mono\ 11
+" elseif has('unix')
+"   set guifont=Droid\ Sans\ Mono\ 11
 endif
-
-" ---------------------------------------------------
-" Call the js beautify plugin https://github.com/maksimr/vim-jsbeautify
-" ---------------------------------------------------
-" map <c-f> :call JsBeautify()<cr>
-map <c-f> :call RangeJsBeautify()<cr>
-" or
-" autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
-" autocmd FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
-" autocmd BufWritePre *.js :call JsBeautify()
 
 " ---------------------------------------------------
 " Syntastic configs
@@ -182,7 +144,7 @@ map <c-f> :call RangeJsBeautify()<cr>
 " I want jshint.
 " source: https://github.com/scrooloose/syntastic/pull/47
 " let g:syntastic_javascript_checkers = ["jshint", \"jslint\"]
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_jshint_quiet_messages ={ "regex" : "Too many errors" }
 " let g:syntastic_javascript_jshint_quiet_messages ={ "regex" : "Redefinition of \'.*\'" }
 " let g:syntastic_quiet_messages = { "level" : "warnings" }
@@ -190,8 +152,8 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides
 let g:syntastic_always_populate_loc_list = 1 "Enable this option to tell syntastic to always stick any detected errors into the |location-list|:
 let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be automatically opened when errors are detected, and closed when none are detected. >
 " let g:syntastic_aggregate_errors = 1
-"
 let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["html"] }
+
 
 " ---------------------------------------------------
 " UtilsSnip configs
@@ -229,12 +191,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "jfsnippets"]
 
 
-" ---------------------------------------------------<left>
-" Setting JSON file type so sourcebeautify can beautify json files.
-" not used anymore. Left so vim-jebeautify can format json files.
-" ---------------------------------------------------
-autocmd BufRead,BufNewFile *.json setf json
-
 " ---------------------------------------------------
 " EasyAlign setup
 " ---------------------------------------------------
@@ -259,9 +215,23 @@ let g:aghighlight=1
 " <C-r><C-w> returns the word under the cursor
 " info taken here: http://stackoverflow.com/questions/13511084/vim-set-cursor-position-in-command-line
 " and here: http://stackoverflow.com/questions/27297304/how-to-append-the-output-of-a-function-in-a-normal-mapping-command/27297508
-nnoremap <expr> <leader>f ':Ag --ignore node_modules --ignore assets -S "" "' . getcwd() . '"<C-Left><Left><Left>'
+autocmd FileType javascript nnoremap <buffer> <expr> <leader>f ':Ag --ignore node_modules --ignore assets -S "" "' . getcwd() . '"<C-Left><Left><Left>'
 " <C-r><C-w> returns the word under the cursor
-nnoremap <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
+autocmd FileType javascript nnoremap <buffer> <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
+
+" ---------------------------------------------------
+" vim-javascript configuration
+" ---------------------------------------------------
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+" ---------------------------------------------------
+" vim-jsx configs
+" ---------------------------------------------------
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+
 
 " ---------------------------------------------------
 " NERDTree configuration

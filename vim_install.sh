@@ -61,8 +61,14 @@ function nerdtree {
 
 function syntastic {
   echo installing 'syntastic'
-  npm install -g jshint
   clone scrooloose/syntastic.git syntastic
+}
+function eslint {
+  echo installing 'eslint'
+  npm install -g eslint
+  npm install -g babel-eslint
+  npm install -g eslint-plugin-react
+  ln -s $currentFolder/.eslintrc .eslintrc
 }
 
 function ternForVim {
@@ -83,27 +89,41 @@ function ultisnips {
 
 }
 
-function vimSnippets {
-  echo installing 'vimSnippets'
+function snippets {
+  echo installing 'snippets'
   clone honza/vim-snippets.git vim-snippets
 }
 
-function vimCommentary {
-  echo installing 'vimCommentary'
+function commentary {
+  echo installing 'commentary'
   clone tpope/vim-commentary.git vim-commentary
 }
 
-function vimJsBeautify {
-  echo installing 'vimJsBeautify'
+function autoformat {
+  echo installing 'vim-autoformat'
   npm -g install js-beautify
-  clone maksimr/vim-jsbeautify.git vim-jsbeautify
-  cd $bundlePath/vim-jsbeautify
-  git submodule update --init --recursive
+  clone Chiel92/vim-autoformat.git vim-autoformat
+  cd $bundlePath/vim-autoformat
 }
 
-function vimJsDoc {
-  echo installing 'vimJsDoc'
+function jsDoc {
+  echo installing 'jsDoc'
   clone heavenshell/vim-jsdoc.git vim-jsdoc
+}
+
+function jsx {
+  echo installing 'jsx'
+  clone mxw/vim-jsx.git vim-jsx
+}
+
+function javascript {
+  echo installing 'javascript'
+  clone pangloss/vim-javascript.git vim-javascript
+}
+
+function json {
+  echo installing 'json'
+  clone elzr/vim-json.git vim-json
 }
 
 function easyAlign {
@@ -157,22 +177,30 @@ function vimrc {
 }
 
 pathogen
+
 nerdtree
 ctrlp
+commentary
 installAg
-vimCommentary
-vimJsDoc
-vimJsBeautify
+autoformat
 easyAlign
 ultisnips
-vimSnippets
+snippets
 syntastic
-ternForVim
 youCompleteMe
 fugitive
 solarized
 iceberg
 delimitMate
 multipleCursors
+
+
+
+javascript
+json
+jsDoc
+jsx
+eslint
+ternForVim
 
 vimrc
