@@ -6,7 +6,6 @@ run vim_install.sh to setup vim plugins and config.
 
 Watch out, the vim_install.sh scripts erase before installing. Make sure to keep a backup of your .vimrc
 
-test
 
 plugins installed:
     
