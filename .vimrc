@@ -140,11 +140,7 @@ endif
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
-" let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_checkers = ["standard"]
-" to use a fork of standard. source :help *syntastic-javascript-standard
-let g:syntastic_javascript_standard_exec = "semistandard"
-let g:syntastic_javascript_standard_generic = 1
+let g:syntastic_javascript_checkers = ['eslint']
 
 " let g:syntastic_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides angular eerrors. source: http://stackoverflow.com/questions/18270355/how-to-ignore-angular-directive-lint-error-with-vim-and-syntastic
@@ -218,26 +214,6 @@ autocmd FileType javascript nnoremap <buffer> <expr> <leader>f ':Ag --ignore nod
 autocmd FileType javascript nnoremap <buffer> <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
 
 " ---------------------------------------------------
-" vim-javascript configuration
-" ---------------------------------------------------
-" let g:javascript_plugin_jsdoc = 1
-" let g:javascript_plugin_flow = 1
-" set foldmethod=syntax
-" set foldlevelstart=20
-
-" ---------------------------------------------------
-" vim-jsx configs
-" ---------------------------------------------------
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-"
-" ---------------------------------------------------
-" vim-autoformat configs
-" ---------------------------------------------------
-" let g:formatterpath = ['~/.nvm/versions/node/v9.11.2/bin']
-" let g:autoformat_verbosemode=1
-" noremap <C-F3> :Autoformat<CR>
-
-" ---------------------------------------------------
 " neoformat configs
 " ---------------------------------------------------
 let g:neoformat_enabled_javascript = ['prettier']
@@ -251,8 +227,9 @@ let g:neoformat_enabled_typescript = ['prettier'] " is this working?
 let g:neoformat_enabled_vue = ['prettier'] " is this working?
 let g:neoformat_enabled_yaml = ['prettier'] " is this working?
 " let g:neoformat_try_prettier = 1
-let g:neoformat_verbose = 1
+let g:neoformat_verbose = 0
 noremap <C-F3> :Neoformat<CR>
+:autocmd BufWritePre *.js,*.css,*.json :Neoformat
 
 
 
