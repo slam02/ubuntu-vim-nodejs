@@ -140,18 +140,12 @@ endif
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
-" apparently, if both jslint and jshint are installed, it always uses jslint
-" I want jshint.
-" source: https://github.com/scrooloose/syntastic/pull/47
-" let g:syntastic_javascript_checkers = ["jshint", \"jslint\"]
 let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_jshint_quiet_messages ={ "regex" : "Too many errors" }
-" let g:syntastic_javascript_jshint_quiet_messages ={ "regex" : "Redefinition of \'.*\'" }
+
 " let g:syntastic_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides angular eerrors. source: http://stackoverflow.com/questions/18270355/how-to-ignore-angular-directive-lint-error-with-vim-and-syntastic
 let g:syntastic_always_populate_loc_list = 1 "Enable this option to tell syntastic to always stick any detected errors into the |location-list|:
 let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be automatically opened when errors are detected, and closed when none are detected. >
-" let g:syntastic_aggregate_errors = 1
 let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["html"] }
 
 
@@ -211,7 +205,7 @@ let g:multi_cursor_exit_from_visual_mode=0
 " ag vim configs
 " ---------------------------------------------------
 " hightlight the search results
-let g:aghighlight=1
+let g:ag_highlight=1
 " <C-r><C-w> returns the word under the cursor
 " info taken here: http://stackoverflow.com/questions/13511084/vim-set-cursor-position-in-command-line
 " and here: http://stackoverflow.com/questions/27297304/how-to-append-the-output-of-a-function-in-a-normal-mapping-command/27297508
@@ -220,16 +214,22 @@ autocmd FileType javascript nnoremap <buffer> <expr> <leader>f ':Ag --ignore nod
 autocmd FileType javascript nnoremap <buffer> <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
 
 " ---------------------------------------------------
-" vim-javascript configuration
+" neoformat configs
 " ---------------------------------------------------
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
-set foldmethod=syntax
-
-" ---------------------------------------------------
-" vim-jsx configs
-" ---------------------------------------------------
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_js = ['prettier']
+let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_less = ['prettier']
+let g:neoformat_enabled_markdown = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier'] " is this working?
+let g:neoformat_enabled_vue = ['prettier'] " is this working?
+let g:neoformat_enabled_yaml = ['prettier'] " is this working?
+" let g:neoformat_try_prettier = 1
+let g:neoformat_verbose = 0
+noremap <C-F3> :Neoformat<CR>
+:autocmd BufWritePre *.js,*.css,*.json :Neoformat
 
 
 
