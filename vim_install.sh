@@ -64,20 +64,6 @@ function syntastic {
   clone scrooloose/syntastic.git syntastic
   echo Do not forget to run 'helptags ~/.vim/bundle/syntastic/doc'. source: https://groups.google.com/forum/#!topic/vim-syntastic/axAbKWRVN4Q
 }
-# function eslint {
-#   echo installing 'eslint'
-#   npm install -g eslint
-#   npm install -g babel-eslint
-#   npm install -g eslint-plugin-react
-#   ln -s $currentFolder/.eslintrc .eslintrc
-# }
-
-# function ternForVim {
-#   echo installing 'ternForVim'
-#   clone marijnh/tern_for_vim.git tern_for_vim
-#   cd ~/.vim/bundle/tern_for_vim
-#   npm install
-# }
 
 function ultisnips {
   echo installing 'ultisnips'
@@ -107,22 +93,10 @@ function neoformat {
   clone sbdchd/neoformat.git neoformat
 }
 
-# function autoformat {
-#   echo installing 'vim-autoformat'
-#   npm -g install js-beautify
-#   clone Chiel92/vim-autoformat.git vim-autoformat
-#   cd $bundlePath/vim-autoformat
-# }
-
 function jsDoc {
   echo installing 'jsDoc'
   clone heavenshell/vim-jsdoc.git vim-jsdoc
 }
-
-# function javascript {
-#   echo installing 'javascript'
-#   clone pangloss/vim-javascript.git vim-javascript
-# }
 
 function json {
   echo installing 'json'
@@ -185,7 +159,6 @@ nerdtree
 ctrlp
 commentary
 installAg
-# autoformat TODO: REMOVE
 neoformat
 
 easyAlign
@@ -199,13 +172,7 @@ iceberg
 delimitMate
 multipleCursors
 
-
-
-# javascript
 json
 jsDoc
-# jsx TODO: REMOVE
-# eslint TODO: REMOVE
-# ternForVim TODO: REMOVE
 
 vimrc
