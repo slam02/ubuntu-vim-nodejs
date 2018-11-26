@@ -153,26 +153,26 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-# pathogen
+pathogen
 
-# nerdtree
+nerdtree
 ctrlp
-# commentary
-# installAg
-# neoformat
+commentary
+installAg
+neoformat
 
-# easyAlign
-# ultisnips
-# snippets
-# syntastic
-# youCompleteMe
-# fugitive
-# solarized
-# iceberg
-# delimitMate
-# multipleCursors
+easyAlign
+ultisnips
+snippets
+syntastic
+youCompleteMe
+fugitive
+solarized
+iceberg
+delimitMate
+multipleCursors
 
-# json
-# jsDoc
+json
+jsDoc
 
-# vimrc
+vimrc
