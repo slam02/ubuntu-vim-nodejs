@@ -137,16 +137,33 @@ if has('mac')
 "   set guifont=Droid\ Sans\ Mono\ 11
 endif
 
+
+
+" generic solution to let syntastic, neoformat, ...
+" find locally installed node_modules and not requiring a global installation.
+" find here: https://github.com/npm/npm/issues/957
+let $PATH .= ':./node_modules/.bin'
+
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
 let g:syntastic_javascript_checkers = ['eslint']
+" node developpers usually let the exeuctable sit in the local repo.
+" taken here:https://github.com/vim-syntastic/syntastic/issues/1692 
+" alternative if not working: https://github.com/mtscout6/syntastic-local-eslint.vim
+" THIS SOLUTION WAS REPLACED BY ADDING LOCAL NODE_MODULES TO THE PATH AS
+" DESCRIBED HERE https://github.com/npm/npm/issues/957
+" let g:syntastic_javascript_eslint_generic = 1
+" let g:syntastic_javascript_eslint_exec = '/bin/ls'
+" let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+" let g:syntastic_javascript_eslint_args='-f compact'
 
 " let g:syntastic_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " hides angular eerrors. source: http://stackoverflow.com/questions/18270355/how-to-ignore-angular-directive-lint-error-with-vim-and-syntastic
 let g:syntastic_always_populate_loc_list = 1 "Enable this option to tell syntastic to always stick any detected errors into the |location-list|:
 let g:syntastic_auto_loc_list = 1 " When set to 1 the error window will be automatically opened when errors are detected, and closed when none are detected. >
 let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["html"] }
+" let g:syntastic_debug = 1
 
 
 " ---------------------------------------------------
@@ -165,7 +182,8 @@ function! g:UltiSnips_Complete()
       return "\<C-n>"
     else
       call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
+      if g:ulti_jump_forwards_res ==
+ 0
         return "\<TAB>"
       endif
     endif
@@ -227,7 +245,7 @@ let g:neoformat_enabled_typescript = ['prettier'] " is this working?
 let g:neoformat_enabled_vue = ['prettier'] " is this working?
 let g:neoformat_enabled_yaml = ['prettier'] " is this working?
 " let g:neoformat_try_prettier = 1
-let g:neoformat_verbose = 0
+" let g:neoformat_verbose = 1
 noremap <C-F3> :Neoformat<CR>
 :autocmd BufWritePre *.js,*.css,*.json :Neoformat
 
