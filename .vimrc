@@ -144,6 +144,13 @@ endif
 " find here: https://github.com/npm/npm/issues/957
 let $PATH .= ':./node_modules/.bin'
 
+" when using gf in javascript file, the extension is not set most of the time.
+" :help path
+" :help suffixesadd
+" found here: https://stackoverflow.com/questions/1932604/vim-problem-with-gf-command
+" https://til.hashrocket.com/posts/fef382f93e-use-suffixadd-to-save-yourself-some-life
+autocmd BufRead,BufNewFile *.js set suffixesadd+=.js,.json
+
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
