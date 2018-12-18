@@ -269,12 +269,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|git'
 " ---------------------------------------------------
 " NERDTree configuration
 " ---------------------------------------------------
-" automatically open NERDTree when vim opens, even when no files are specified.
-" source: https://github.com/scrooloose/nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" automatically open NERDTree when a file is specified at command line
-autocmd vimenter * NERDTree
+if !&diff " do not open nerdtree on diff mode
+  " automatically open NERDTree when vim opens, even when no files are specified.
+  " source: https://github.com/scrooloose/nerdtree
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  " automatically open NERDTree when a file is specified at command line
+  autocmd vimenter * NERDTree
+endif
 
 " statusline settings
 " taken from: http://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
