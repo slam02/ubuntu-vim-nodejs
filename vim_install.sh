@@ -28,8 +28,8 @@ function pathogen {
 
 function youCompleteMe {
   echo installing 'YouCompleteMe'
-  sudo apt-get install build-essential cmake
-  sudo apt-get install python-dev
+  sudo apt install build-essential cmake python3-dev
+  npm install -g typescript
 
   clone Valloric/YouCompleteMe.git YouCompleteMe
 
@@ -37,7 +37,7 @@ function youCompleteMe {
 
   git submodule update --init --recursive
 
-  ./install.sh --clang-completer
+  python3 install.py --js-completer --clang-completer
 }
 
 
@@ -153,26 +153,26 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-pathogen
+# pathogen
 
-nerdtree
-ctrlp
-commentary
-installAg
-neoformat
+# nerdtree
+# ctrlp
+# commentary
+# installAg
+# neoformat
 
-easyAlign
-ultisnips
-snippets
-syntastic
+# easyAlign
+# ultisnips
+# snippets
+# syntastic
 youCompleteMe
-fugitive
-solarized
-iceberg
-delimitMate
-multipleCursors
+# fugitive
+# solarized
+# iceberg
+# delimitMate
+# multipleCursors
 
-json
-jsDoc
+# json
+# jsDoc
 
-vimrc
+# vimrc
