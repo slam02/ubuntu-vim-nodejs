@@ -142,9 +142,15 @@ function delimitMate {
 }
 
 function multipleCursors {
-  echo insalling vim-multiple-cursors
+  echo installing vim-multiple-cursors
   clone terryma/vim-multiple-cursors.git vim-multiple-cursors
 }
+
+function lightline {
+  echo installing lightline
+  clone itchyny/lightline.vim lightline.vim
+}
+
 
 function vimrc {
   local dest=$currentFolder
@@ -177,6 +183,7 @@ fugitive
 monokai-tasty
 delimitMate
 multipleCursors
+lightline
 
 json
 jsDoc

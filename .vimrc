@@ -36,7 +36,9 @@ filetype plugin indent on
 syntax enable
 
 " set color scheme
-" colorscheme iceberg
+" ---------------------------------------------------
+"  vim-monokai-tasty configs
+" ---------------------------------------------------
 let g:vim_monokai_tasty_italic = 1
 colorscheme vim-monokai-tasty
 
@@ -286,27 +288,18 @@ if !&diff " do not open nerdtree on diff mode
   autocmd vimenter * NERDTree
 endif
 
-" statusline settings
-" taken from: http://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
-" more here: http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
-hi User1 guifg=#eea040 guibg=#222222
-hi User2 guifg=#dd3333 guibg=#222222
-hi User3 guifg=#ff66ff guibg=#222222
-hi User4 guifg=#a0ee40 guibg=#222222
-hi User5 guifg=#eeee40 guibg=#222222
-set laststatus=2 " 2 - always show the status line (0 = never, 1 = (default) only if there are two or more windows, 2 = always)
-set statusline=
-set statusline +=%1*\ %n\ %* "buffer number
-set statusline +=%5*%{&ff}%* "file format
-set statusline +=%3*%y%* "file type
-set statusline +=%4*\ %<%F%* "full path
-" used by syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" end user by suntastic
-"
-set statusline +=%2*%m%* "modified flag
-set statusline +=%1*%=%5l%* "current line
-set statusline +=%2*/%L%* "total lines
-set statusline +=%1*%4v\ %* "virtual column number
-set statusline +=%2*0x%04B\ %* "character under cursor
+
+" ---------------------------------------------------
+" lightline configuration
+" ---------------------------------------------------
+let g:lightline = {
+      \ 'colorscheme': 'monokai_tasty',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+set noshowmode " mode is already displayed in the status line
