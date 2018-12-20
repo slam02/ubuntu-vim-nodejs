@@ -151,6 +151,12 @@ let $PATH .= ':./node_modules/.bin'
 " https://til.hashrocket.com/posts/fef382f93e-use-suffixadd-to-save-yourself-some-life
 autocmd BufRead,BufNewFile *.js set suffixesadd+=.js,.json
 
+
+" ---------------------------------------------------
+" YouCompleteMe configs
+" ---------------------------------------------------
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
