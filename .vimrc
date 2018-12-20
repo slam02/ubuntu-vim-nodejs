@@ -36,7 +36,9 @@ filetype plugin indent on
 syntax enable
 
 " set color scheme
-colorscheme iceberg
+" colorscheme iceberg
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
 " Display line number
 set number

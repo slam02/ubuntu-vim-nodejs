@@ -131,6 +131,11 @@ function iceberg {
   clone cocopon/iceberg.vim.git  iceberg.vim
 }
 
+function monokai-tasty {
+  echo installing 'monokai-tasty' color scheme
+  clone patstockwell/vim-monokai-tasty.git vim-monokai-tasty.vim
+}
+
 function delimitMate {
   echo insalling delimitMate
   clone Raimondi/delimitMate.git delimitMate
@@ -153,26 +158,27 @@ function vimrc {
   ln -s $dest/.vimrc .vimrc
 }
 
-# pathogen
+pathogen
 
-# nerdtree
-# ctrlp
-# commentary
-# installAg
-# neoformat
+nerdtree
+ctrlp
+commentary
+installAg
+neoformat
 
-# easyAlign
-# ultisnips
-# snippets
-# syntastic
+easyAlign
+ultisnips
+snippets
+syntastic
 youCompleteMe
-# fugitive
+fugitive
 # solarized
 # iceberg
-# delimitMate
-# multipleCursors
+monokai-tasty
+delimitMate
+multipleCursors
 
-# json
-# jsDoc
+json
+jsDoc
 
-# vimrc
+vimrc
