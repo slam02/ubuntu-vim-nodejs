@@ -161,6 +161,8 @@ autocmd BufRead,BufNewFile *.js set suffixesadd+=.js,.json
 " ---------------------------------------------------
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_always_populate_loc_list = 0
+let g:ycm_always_populate_location_list = 0
 " ---------------------------------------------------
 " Syntastic configs
 " ---------------------------------------------------
