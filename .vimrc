@@ -300,6 +300,9 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
+      \ 'component': {
+      \   'filename': '%n:%t'
+      \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
       \ },
