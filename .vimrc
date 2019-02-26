@@ -245,9 +245,13 @@ let g:ag_highlight=1
 " <C-r><C-w> returns the word under the cursor
 " info taken here: http://stackoverflow.com/questions/13511084/vim-set-cursor-position-in-command-line
 " and here: http://stackoverflow.com/questions/27297304/how-to-append-the-output-of-a-function-in-a-normal-mapping-command/27297508
-autocmd FileType javascript,json,yaml,dockerfile nnoremap <buffer> <expr> <leader>f ':Ag --ignore node_modules --ignore assets -S "" "' . getcwd() . '"<C-Left><Left><Left>'
+" autocmd FileType javascript,json,yaml,dockerfile nnoremap <buffer> <expr> <leader>f ':Ag --ignore node_modules --ignore assets -S "" "' . getcwd() . '"<C-Left><Left><Left>'
 " <C-r><C-w> returns the word under the cursor
-autocmd FileType javascript,json,yaml,dockerfile nnoremap <buffer> <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
+" autocmd FileType javascript,json,yaml,dockerfile nnoremap <buffer> <expr> <leader>fw ':Ag --ignore node_modules --ignore assets -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
+
+nnoremap  <expr> <leader>f ':Ag --ignore node_modules -S "" "' . getcwd() . '"<C-Left><Left><Left>'
+" <C-r><C-w> returns the word under the cursor
+nnoremap  <expr> <leader>fw ':Ag --ignore node_modules -S "<C-r><C-w>" "' . getcwd() . '"<C-Left><Left><Left>'
 
 " ---------------------------------------------------
 " neoformat configs
@@ -273,6 +277,7 @@ noremap <C-F3> :Neoformat<CR>
 " ---------------------------------------------------
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 0
+let g:ctrlp_show_hidden = 1
 " beware of the escaped OR in regex
 let g:ctrlp_custom_ignore = 'node_modules\|git'
 " tip: how to use silver searcher for faster result: https://github.com/kien/ctrlp.vim/issues/58#issuecomment-247017402
