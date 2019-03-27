@@ -126,11 +126,6 @@ function solarized {
   clone altercation/vim-colors-solarized.git vim-colors-solarized
 }
 
-function iceberg {
-  echo installing 'iceberg' color scheme
-  clone cocopon/iceberg.vim.git  iceberg.vim
-}
-
 function monokai-tasty {
   echo installing 'monokai-tasty' color scheme
   clone patstockwell/vim-monokai-tasty.git vim-monokai-tasty.vim
@@ -151,6 +146,10 @@ function lightline {
   clone itchyny/lightline.vim lightline.vim
 }
 
+function vim-javascript {
+  echo installing vim-javasript
+  clone pangloss/vim-javascript.git vim-javascript
+}
 
 function vimrc {
   local dest=$currentFolder
@@ -178,13 +177,12 @@ snippets
 syntastic
 youCompleteMe
 fugitive
-# solarized
-# iceberg
 monokai-tasty
 delimitMate
 multipleCursors
 lightline
 
+vim-javascript
 json
 jsDoc
 
