@@ -151,6 +151,12 @@ function vim-javascript {
   clone pangloss/vim-javascript.git vim-javascript
 }
 
+function vim-jsx {
+  echo installing vim-jsx
+  clone mxw/vim-jsx.git mxw/vim-jsx
+}
+
+
 function vimrc {
   local dest=$currentFolder
 
@@ -177,12 +183,15 @@ snippets
 syntastic
 youCompleteMe
 fugitive
-monokai-tasty
 delimitMate
 multipleCursors
 lightline
 
+# those 3 are required to work together
 vim-javascript
+monokai-tasty
+vim-jsx
+
 json
 jsDoc
 
