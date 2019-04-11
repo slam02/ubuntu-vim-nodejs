@@ -151,9 +151,9 @@ function vim-javascript {
   clone pangloss/vim-javascript.git vim-javascript
 }
 
-function vim-jsx {
-  echo installing vim-jsx
-  clone mxw/vim-jsx.git mxw/vim-jsx
+function vim-jsx-pretty {
+  echo installing vim-jsx-pretty
+  clone MaxMEllon/vim-jsx-pretty.git MaxMEllon/vim-jsx-pretty
 }
 
 
@@ -189,8 +189,8 @@ lightline
 
 # those 3 are required to work together
 vim-javascript
+vim-jsx-pretty
 monokai-tasty
-vim-jsx
 
 json
 jsDoc
