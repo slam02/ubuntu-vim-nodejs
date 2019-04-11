@@ -189,6 +189,7 @@ lightline
 
 # those 3 are required to work together
 vim-javascript
+# vim-jsx-pretty over vim-jsx for this reason: https://github.com/mxw/vim-jsx/issues/183
 vim-jsx-pretty
 monokai-tasty
 
