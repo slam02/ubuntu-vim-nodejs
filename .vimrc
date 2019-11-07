@@ -313,3 +313,11 @@ let g:lightline = {
       \ },
       \ }
 set noshowmode " mode is already displayed in the status line
+
+" how-to see the non-visible while spaces
+" :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" :set list
+" but hei how-to unset the visible tabs ?!
+" :set nolist
+
